@@ -12,6 +12,10 @@ const routes = [
     {
         path: '/home',
         component: () => import('@/views/HomePage.vue')
+    },
+    {
+        path: '/matches',
+        component: () => import('@/views/MatchPage.vue')
     }
 
 ]

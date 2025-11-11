@@ -24,14 +24,13 @@
           Raza: {{ character.race }}<br />
           Ki: {{ character.ki }}
         </p>
-
         <!-- Botones -->
         <div class="d-flex justify-content-center gap-3 mt-3">
-          <button class="btn btn-outline-danger btn-round" @click="$emit('decide', false)">
+          <button class="btn btn-outline-danger btn-round" @click="$emit('remove', character.id)">
             <i class="bi bi-x-lg"></i>
           </button>
-          <button class="btn btn-outline-success btn-round" @click="$emit('decide', true)">
-            <i class="bi bi-heart-fill"></i>
+          <button class="btn btn-outline-success">
+            CHAT
           </button>
         </div>
       </div>
@@ -48,7 +47,7 @@ defineProps({
     required: true,
   },
 });
-defineEmits(['decide'])
+defineEmits(['remove'])
 </script>
 
 <style scoped>
@@ -65,7 +64,12 @@ defineEmits(['decide'])
   object-fit: cover;
   object-position: top;
 }
-
+.card-img-top {
+  width: 100%;
+  aspect-ratio: 1 / 1;        /* cuadrado perfecto */
+  object-fit: cover;           /* recorta sin deformar */
+  object-position: top;        /* enfoca la parte superior */
+}
 
 .card-body h5 {
   font-weight: 600;
