@@ -4,13 +4,13 @@
       <h5 class="mb-4">Menú</h5>
       <ul class="nav flex-column">
         <li class="nav-item">
-          <router-link class="nav-link" to="/home">Inicio</router-link>
+          <router-link class="nav-link" to="/home">Inicio.</router-link>
         </li>
         <li class="nav-item">
-          <router-link class="nav-link" to="/matches">Matches</router-link>
+          <router-link class="nav-link" to="/matches">Matches.</router-link>
         </li>
         <li class="nav-item">
-          <router-link class="nav-link" to="/admin">Admin</router-link>
+          <router-link class="nav-link" to="/admin">Admin.</router-link>
         </li>
         <li class="nav-item">
           <button class="btn btn-sm btn-outline-danger" @click="cerrarSesion">

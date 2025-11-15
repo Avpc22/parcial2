@@ -3,7 +3,6 @@
     class="card-wrapper d-flex align-items-center justify-content-center"
   >
     <div class="tinder-card card text-center">
-      <!-- Imagen real del personaje -->
       <img
         :src="character.image"
         @error="
@@ -13,19 +12,14 @@
         class="card-img-top"
         :alt="character.name"
       />
-
-      <!-- Cuerpo -->
       <div class="card-body">
-        <!-- Nombre real -->
         <h5 class="card-title mb-1">{{ character.name }}</h5>
 
-        <!-- Raza y Ki reales -->
         <p class="card-text text-muted">
           Raza: {{ character.race }}<br />
           Ki: {{ character.ki }}
         </p>
 
-        <!-- Botones -->
         <div class="d-flex justify-content-center gap-3 mt-3">
           <button class="btn btn-outline-danger btn-round" @click="$emit('decide', false)">
             <i class="bi bi-x-lg"></i>
