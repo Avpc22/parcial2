@@ -3,7 +3,6 @@
     class="card-wrapper d-flex align-items-center justify-content-center"
   >
     <div class="tinder-card card text-center">
-      <!-- Imagen real del personaje -->
       <img
         :src="character.image"
         @error="
@@ -14,9 +13,7 @@
         :alt="character.name"
       />
 
-      <!-- Cuerpo -->
       <div class="card-body">
-        <!-- Nombre real -->
         <h5 class="card-title mb-1">{{ character.name }}</h5>
 
         <!-- Raza y Ki reales -->
