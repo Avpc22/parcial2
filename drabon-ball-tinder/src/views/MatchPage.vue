@@ -7,10 +7,8 @@
     <div class="d-flex flex-wrap justify-content-center gap-3 p-3">
       <div
         v-for="c in matchStore.list"
-        :key="c.id"
-      >
-      <MatchCard v-if="c && c.id" :key="c.id" :character="c" @remove="matchStore.remove"
-/>
+        :key="c.id">
+      <MatchCard v-if="c && c.id" :key="c.id" :character="c" @remove="matchStore.remove"/>
       </div>
     </div>
   </div>
