@@ -13,5 +13,5 @@
 
 <script setup>
 import MatchCard from '@/components/MatchCard.vue';
-import { matchStore } from '@/matches/matchStore.js';
+import { matchStore } from '@/stores/matchStore.js';
 </script>

@@ -1,33 +1,38 @@
 <template>
-        <TinderCard v-if="demo && demo.name" :character="demo" @decide="decide" />
+  <div>
+    <HeaderBar></HeaderBar>
+  </div>
+  <TinderCard v-if="demo && demo.name" :character="demo" @decide="decide" />
 </template>
 
 <script setup>
 import { ref, onMounted } from 'vue'
-import { loadCharacters, getAll } from '@/services/CharacterService.js'
+import {getAll } from '@/services/CharacterService.js'
 import TinderCard from '@/components/TinderCard.vue'
-import { matchStore } from '@/matches/matchStore'
+import { matchStore } from '@/stores/matchStore'
+import { usuarioActual } from '@/stores/sessionStore'
+import HeaderBar from '@/components/HeaderBar.vue'
 
+const filtrados = ref([])
 const demo = ref({})
 const index = ref(0)
 onMounted(async () => {
-  await loadCharacters()
-  demo.value = getAll()[index.value]
+  const todos = getAll()
+  const filtro = usuarioActual.value === 'daniel' ? 'Female' : 'Male'
+  filtrados.value = todos.filter(c => c.gender === filtro)
+  demo.value = filtrados.value[index.value] || null
 })
 
 function decide(like) {
- console.log('📥 decide recibido:', like)
   if (like) {
-    console.log('💚 like es TRUE')
-    console.log('🧍 personaje actual:', demo.value.name)
     matchStore.add(demo.value)
   }
   next()
 }
 
 function next() {
-  const total = getAll().length
-  index.value = (index.value + 1) % total // si llega al final, vuelve al principio
-  demo.value = getAll()[index.value]
+  const total = filtrados.value.length
+  index.value = (index.value + 1) % total
+  demo.value = filtrados.value[index.value] || null
 }
 </script>
