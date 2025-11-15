@@ -12,6 +12,7 @@
       </div>
     </div>
   </div>
+  <FooterBar></FooterBar>
 </template>
 
 <script setup>
@@ -19,6 +20,7 @@ import MatchCard from '@/components/MatchCard.vue';
 import { matchStore } from '@/stores/matchStore.js';
 import SidebarLeft from '@/components/SidebarLeft.vue';
 import HeaderBar from '@/components/HeaderBar.vue';
+import FooterBar from '@/components/FooterBar.vue';
 </script>
 <style>
 /* El ancho de tu sidebar es 260px */

@@ -2,7 +2,7 @@
   <SidebarLeft></SidebarLeft>
   <HeaderBar></HeaderBar>
   <TinderCard v-if="demo && demo.name" :character="demo" @decide="decide" />
-  
+  <FooterBar></FooterBar>
 </template>
 
 <script setup>
@@ -13,6 +13,7 @@ import { matchStore } from '@/stores/matchStore'
 import { usuarioActual } from '@/stores/sessionStore'
 import HeaderBar from '@/components/HeaderBar.vue'
 import SidebarLeft from '@/components/SidebarLeft.vue'
+import FooterBar from '@/components/FooterBar.vue'
 
 const filtrados = ref([])
 const demo = ref({})
