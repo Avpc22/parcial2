@@ -1,36 +1,28 @@
 import { reactive } from 'vue'
-import { Character } from '@/models/Character.js'
 
-// ✅ Store reactivo
+//Store reactivo
 export const characterStore = reactive({
   characters: []   // personajes combinados (API + locales)
 })
 
-// ✅ Cargar personajes desde API y combinar con locales
+// Cargar personajes desde API y combinar con locales
 export async function loadCharacters() {
-  // 1️⃣ Traemos la API
-  const res = await fetch('https://dragonball-api.com/api/characters?limit=100')
-  const data = await res.json()
-  const apiCharacters = data.items.map(p => new Character(p))
-
-  // 2️⃣ Traemos los locales
+  // Traemos solo los locales desde localStorage
   const local = JSON.parse(localStorage.getItem('customCharacters') || '[]')
-
-  // 3️⃣ Combinamos API + locales
-  characterStore.characters = [...apiCharacters, ...local]
+  characterStore.characters = local
 }
 
-// ✅ Obtener todos los personajes
+//Obtener todos los personajes
 export function getAll() {
   return characterStore.characters
 }
 
-// ✅ Obtener por género
+//Obtener por género
 export function getByGender(gender) {
   return characterStore.characters.filter(c => c.gender === gender)
 }
 
-// ✅ Crear personaje local
+//Crear personaje local
 export function createCharacter(character) {
   const newCharacter = { ...character, id: Date.now() }
   // guardamos en el store reactivo
@@ -40,7 +32,7 @@ export function createCharacter(character) {
   saveLocalCharacter(newCharacter)
 }
 
-// ✅ Editar personaje local
+// Editar personaje local
 export function editCharacter(character) {
   const i = characterStore.characters.findIndex(c => c.id === character.id)
   if (i !== -1) {
@@ -49,7 +41,7 @@ export function editCharacter(character) {
   }
 }
 
-// ✅ Borrar personaje local
+// Borrar personaje local
 export function deleteCharacter(id) {
   characterStore.characters = characterStore.characters.filter(c => c.id !== id)
   saveAllLocalCharacters()
