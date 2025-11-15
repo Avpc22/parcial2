@@ -1,8 +1,8 @@
 <template>
-  <div>
-    <HeaderBar></HeaderBar>
-  </div>
+  <SidebarLeft></SidebarLeft>
+  <HeaderBar></HeaderBar>
   <TinderCard v-if="demo && demo.name" :character="demo" @decide="decide" />
+  
 </template>
 
 <script setup>
@@ -12,6 +12,7 @@ import TinderCard from '@/components/TinderCard.vue'
 import { matchStore } from '@/stores/matchStore'
 import { usuarioActual } from '@/stores/sessionStore'
 import HeaderBar from '@/components/HeaderBar.vue'
+import SidebarLeft from '@/components/SidebarLeft.vue'
 
 const filtrados = ref([])
 const demo = ref({})

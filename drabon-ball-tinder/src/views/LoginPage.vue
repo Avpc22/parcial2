@@ -15,7 +15,7 @@
         </div>
         <div v-if="error" class="alert alert-danger mt-3">{{ error }}</div>
         <div class="d-grid gap-2">
-          <button type="submit" class="btn btn-primary">Entrar</button>
+          <button type="submit" class="btn btn-danger">Entrar</button>
         </div>
       </form>
 
