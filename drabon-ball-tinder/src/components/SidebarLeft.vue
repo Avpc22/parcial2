@@ -10,6 +10,9 @@
           <router-link class="nav-link" to="/matches">Matches</router-link>
         </li>
         <li class="nav-item">
+          <router-link class="nav-link" to="/admin">Admin</router-link>
+        </li>
+        <li class="nav-item">
           <button class="btn btn-sm btn-outline-danger" @click="cerrarSesion">
             Cerrar sesión
           </button>

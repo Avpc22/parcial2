@@ -16,6 +16,10 @@ const routes = [
     {
         path: '/matches',
         component: () => import('@/views/MatchPage.vue')
+    },
+    {
+        path: '/admin',
+        component: () => import('@/views/CharactersAdmin.vue')
     }
 
 ]
